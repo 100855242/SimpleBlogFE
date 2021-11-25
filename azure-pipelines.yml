@@ -16,7 +16,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: 
-    cd SimpleBlogFE
+    cd '$(Build.BinariesDirectory)/SimpleBlogFE/'
     npm install -g @angular/cli
     npm install
     ng build --prod
