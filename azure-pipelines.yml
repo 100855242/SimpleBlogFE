@@ -16,7 +16,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: 
-    cd '$(Build.BinariesDirectory)/SimpleBlogFE/'
+    cd SimpleBlogFE/SimpleBlogFE/
     npm install -g @angular/cli
     npm install
     ng build --prod
@@ -24,7 +24,7 @@ steps:
 
 - task: ArchiveFiles@2
   inputs:
-    rootFolderOrFile: '$(Build.BinariesDirectory)/SimpleBlogFE/dist/SimpleBlogFE'
+    rootFolderOrFile: '$(Build.BinariesDirectory)/SimpleBlogFE/SimpleBlogFE/dist/SimpleBlogFE'
     includeRootFolder: true
     archiveType: 'zip'
     archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
