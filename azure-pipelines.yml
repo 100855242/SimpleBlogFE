@@ -35,3 +35,6 @@ steps:
     targetPath: '$(Pipeline.Workspace)'
     artifact: 'AngularApp'
     publishLocation: 'pipeline'
+
+
+
