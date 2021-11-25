@@ -15,7 +15,7 @@ steps:
     versionSpec: '14.x'
   displayName: 'Install Node.js'
 
-- script: 
+- script: |
     cd 'SimpleBlogFE'
     npm install -g @angular/cli
     npm install
@@ -27,11 +27,11 @@ steps:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)/SimpleBlogFE/dist/SimpleBlogFE'
     includeRootFolder: false
     archiveType: 'zip'
-    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/SimpleBlogApp.zip'
     replaceExistingArchive: true
 
 - task: PublishPipelineArtifact@1
   inputs:
     targetPath: '$(Pipeline.Workspace)'
-    artifact: 'SimpleBlogFE'
+    artifact: 'AngularApp'
     publishLocation: 'pipeline'
