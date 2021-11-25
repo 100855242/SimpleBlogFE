@@ -12,14 +12,23 @@ pool:
 steps:
 - task: NodeTool@0
   inputs:
-    versionSpec: '10.x'
+    versionSpec: '14.x'
   displayName: 'Install Node.js'
 
-- script: |
+- script: 
+    cd SimpleBlogFE|
     npm install -g @angular/cli
     npm install
     ng build --prod
   displayName: 'npm install and build'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(System.DefaultWorkingDirectory)/SimpleBlogFE/dist/SimpleBlogFE'
+    includeRootFolder: false
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
 
 - task: PublishPipelineArtifact@1
   inputs:
